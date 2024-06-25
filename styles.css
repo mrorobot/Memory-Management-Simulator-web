@@ -1,49 +1,206 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+    --os-color: #e74c3c;
+    --allocated-color: #3498db;
+    --free-color: #2ecc71;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 header {
-    background-color: #f4f4f4;
-    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
     text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
 
 main {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
 }
 
 section {
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
-label, input {
+#input-section {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+#output-section {
+    flex: 1;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
 }
 
 button {
-    padding: 10px;
-    background-color: #4CAF50;
+    background-color: var(--secondary-color);
     color: white;
     border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-grow: 1;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #27ae60;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+#program-sizes {
+    margin-top: 1rem;
+}
+
+.program-size-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.program-size-input label {
+    margin-right: 0.5rem;
+    min-width: 120px;
 }
 
 #memory-visualization {
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
     padding: 10px;
-    border: 1px solid #ddd;
-    min-height: 50px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.memory-block {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+#allocation-info, #fragmentation-info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+#allocation-info p, #fragmentation-info p {
+    margin: 0.25rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+    }
+    
+    #input-section, #output-section {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Add these rules at the end of your existing CSS */
+
+@media (max-width: 1200px) {
+    main {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+    }
+    
+    #input-section, #output-section {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .memory-block {
+        width: 10px;
+        height: 10px;
+    }
 }

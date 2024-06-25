@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Management Simulator</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -12,19 +13,34 @@
     </header>
     <main>
         <section id="input-section">
-            <h2>Input</h2>
-            <label for="memory-size">Memory Size:</label>
-            <input type="number" id="memory-size" min="1">
-            <label for="num-programs">Number of Programs:</label>
-            <input type="number" id="num-programs" min="1">
-            <button id="start-simulation">Start Simulation</button>
+            <h2>Simulation Parameters</h2>
+            <div class="input-group">
+                <label for="memory-size">Memory Size (KB):</label>
+                <input type="number" id="memory-size" min="1" value="100">
+            </div>
+            <div class="input-group">
+                <label for="num-programs">Number of Programs:</label>
+                <input type="number" id="num-programs" min="1" value="5">
+            </div>
+            <div id="program-sizes"></div>
+            <div class="button-group">
+                <button id="generate-programs">Generate Random Programs</button>
+                <button id="start-simulation">Start Simulation</button>
+                <button id="step-simulation" disabled>Step Simulation</button>
+                <button id="auto-simulation" disabled>Auto Simulation</button>
+                <button id="reset-simulation">Reset</button>
+            </div>
         </section>
         <section id="output-section">
-            <h2>Output</h2>
+            <h2>Simulation Results</h2>
             <div id="memory-visualization"></div>
+            <div id="allocation-info"></div>
             <div id="fragmentation-info"></div>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2024 Memory Management Simulator by Zayn</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
